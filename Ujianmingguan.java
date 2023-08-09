@@ -16,21 +16,22 @@ public class Ujianmingguan {
         driver.manage().window().fullscreen();
         System.out.println("Open Browser, Open URL");
 
-      String titlePage = driver.findElement(By.className("main-header")).getText();
+        String titlePage = driver.findElement(By.className("main-header")).getText();
         System.out.println(titlePage);
         String titleHeader = driver.getTitle();
-       System.out.println(titleHeader);
-        driver.findElement(By.name("username")).sendKeys("Juara Coding");
-        driver.findElement(By.name("Email")).sendKeys("Infor@JuaraCoding");
-        driver.findElement(By.name("Password")).sendKeys("Juaracoding123");
+        System.out.println(titleHeader);
+        driver.findElement(By.id("noo-site")).click();
+        driver.findElement(By.id("pull-right noo-topbar-right")).click();
+        driver.findElement(By.id("reg_username")).sendKeys("Juara Coding");
+        driver.findElement(By.id("reg_email")).sendKeys("Infor@JuaraCoding");
+        driver.findElement(By.id("reg_password")).sendKeys("Juaracoding123");
+        driver.findElement(By.className("woocommerce-Button woocommerce-button button wp-element-button woocommerce-form-register__submit")).click();
+        driver.findElement(By.className("icon_bag_alt")).click();
+        driver.findElement(By.className("button wc-backward wp-element-button")).click();
         driver.findElement(By.xpath("//input [@Class = 'noo-container-shop noo-shop-wrap']")).sendKeys("noo-container-catalog");
         driver.findElement(By.xpath("//button [@Class = 'noo-container-catalog]")).click();
         // driver.findElement(By.id("permanentAddress")).sendKeys("Jakarta");
         js.executeScript("windows.scrollBy(0,500)"); // scroll vertical 500px
-
-        driver.findElement(By.name("log in")).click();
-
-        // buat assert menggunakan if//
 
         if (titlePage.equalsIgnoreCase("Text Box")) {
             System.out.println("Status : Pass");
